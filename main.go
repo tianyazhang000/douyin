@@ -1,7 +1,7 @@
 package douyin
 
 import (
-	"douyin/public"
+	"douyin/dao"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"os"
@@ -9,7 +9,7 @@ import (
 
 func main() {
 	//初始化数据库
-	if err := public.Init(); err != nil {
+	if err := dao.Init(); err != nil {
 		os.Exit(-1)
 	}
 	fmt.Println("数据库初始化完成")

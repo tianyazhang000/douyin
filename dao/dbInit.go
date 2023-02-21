@@ -1,4 +1,4 @@
-package public
+package dao
 
 import (
 	"github.com/subosito/gotenv"
