@@ -7,8 +7,8 @@ import (
 
 func InitRouter(r *gin.Engine) {
 	//设置静态目录为public文件夹
-	r.Static("/static", "./public")
-	r.Static("/favicon.ico", "/public/tinicon.ico.png")
+	r.Static("/static", "./common")
+	r.Static("/favicon.ico", "/common/tinicon.ico.png")
 	apiRouter := r.Group("/douyin")
 
 	//// basic apis

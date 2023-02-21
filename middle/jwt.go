@@ -22,7 +22,7 @@ type UserClaim struct {
 const TokenExpireDuration = time.Hour * 2
 
 // 密钥
-var Secret = []byte("simpletiktok")
+var Secret = []byte("douyin")
 
 // 生成token
 func GenToken(userId int64) (string, error) {
@@ -53,7 +53,7 @@ func ParseToken(tokenString string) (int64, error) {
 	return -1, errors.New("invalid token")
 }
 
-// token校验中间件...随便扔个先 如果要用再修改吧
+// token校验中间件
 func JWTAuthMiddleware(context *gin.Context) {
 	token, ok := context.GetQuery("token")
 	if !ok {
@@ -70,6 +70,5 @@ func JWTAuthMiddleware(context *gin.Context) {
 		})
 	}
 	context.Set("userid", userId)
-	//不调用next似乎也会继续方法链路 未测试
 	context.Next()
 }
