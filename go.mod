@@ -3,6 +3,7 @@ module douyin
 go 1.19
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.8.2
 	github.com/subosito/gotenv v1.4.2
 	gorm.io/driver/mysql v1.4.7
