@@ -64,7 +64,7 @@ func (f *PublishVideoFlow) SaveVideo() (string, error) {
 	//2.生成文件保存名
 	finalname := fmt.Sprint(f.AuthorId) + "_" + fmt.Sprint(time.Now().Unix()) + "_" + filename
 	//3.生成保存路径
-	saveVedioPath := filepath.Join("./public/video/", finalname)
+	saveVedioPath := filepath.Join("./common/video/", finalname)
 	f.SaveVedioPath = "/static/video/" + finalname
 	//开始保存
 	if err := f.Context.SaveUploadedFile(f.Data, saveVedioPath); err != nil {
@@ -74,9 +74,9 @@ func (f *PublishVideoFlow) SaveVideo() (string, error) {
 }
 
 func (f *PublishVideoFlow) SaveCover(finalname string) error {
-	videoPath := "./public/video/" + finalname
+	videoPath := "./common/video/" + finalname
 	//保存视频流首帧作为封面
-	saveCovel := filepath.Join("./public/cover/", finalname+".jpg")
+	saveCovel := filepath.Join("./common/cover/", finalname+".jpg")
 	f.SaveImagePath = "/static/cover/" + finalname + ".jpg"
 	cmd := exec.Command("ffmpeg", "-y", "-i", videoPath, "-r", "1", "-s", "600x400", "-vframes", "1", "./"+saveCovel)
 	var stdout, stderr bytes.Buffer

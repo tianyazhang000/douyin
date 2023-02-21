@@ -1,4 +1,4 @@
-package douyin
+package main
 
 import (
 	"douyin/dao"
